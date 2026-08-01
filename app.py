@@ -3,7 +3,7 @@ from sympy import symbols, factor
 from sympy.ntheory import primefactors
 
 # Page Configuration
-st.set_page_title(pagedown="Math Factor Tool")
+st.set_page_title(page_title="Math Factor Tool")
 st.title("🧮 Mathematical Factorization AI Tool")
 st.write("අංකයක හෝ වීජීය ප්‍රකාශනයක (Algebraic Expression) සාධක සොයා ගන්න.")
 
