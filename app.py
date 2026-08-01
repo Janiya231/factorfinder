@@ -2,8 +2,9 @@ import streamlit as st
 from sympy import symbols, factor
 from sympy.ntheory import primefactors
 
-# Page Configuration
-st.set_page_title(page_title="Math Factor Tool")
+# මෙය අනිවාර්යයෙන්ම කේතයේ මුලින්ම තිබිය යුතුය
+st.set_page_config(page_title="Math Factor Tool", page_icon="🧮")
+
 st.title("🧮 Mathematical Factorization AI Tool")
 st.write("අංකයක හෝ වීජීය ප්‍රකාශනයක (Algebraic Expression) සාධක සොයා ගන්න.")
 
@@ -15,17 +16,12 @@ if option == "Algebraic Expression (e.g., x^2 - 9)":
     
     if st.button("සාධක සොයන්න"):
         try:
-            # x, y වැනි විචල්‍යයන් නිර්වචනය කිරීම
             x, y, z = symbols('x y z')
             expression = sympify(user_input)
-            
-            # SymPy භාවිතයෙන් නිවැරදි සාධක සෙවීම
             factored_result = factor(expression)
-            
-            st.success(s:=f"**පිළිතුර:** {factored_result}")
-            
+            st.success(f"**පිළිතුර:** {factored_result}")
         except Exception as e:
-            st.error(f"දෝෂයකි: කරුණාකර නිවැරදි ආදානයක් ලබා දෙන්න.")
+            st.error("දෝෂයකි: කරුණාකර නිවැරදි ආදානයක් ලබා දෙන්න.")
 
 elif option == "Number Prime Factors (e.g., 60)":
     num_input = st.number_input("අංකයක් ඇතුළත් කරන්න:", min_value=1, step=1)
